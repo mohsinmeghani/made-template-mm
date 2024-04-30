@@ -39,7 +39,7 @@ block AirportTable oftype TableInterpreter{
 
 block AirportLoaders oftype SQLiteLoader{
     table:"airports";
-    file:"./airports.sqlite";
+    file:"airports.sqlite";
 }
 
 }
