@@ -18,7 +18,7 @@ pipeline Trees{
     block toTable oftype TableInterpreter{
         header: true;
         columns:[
-            "lfd_nr" oftype text,
+            "lfd_nr" oftype integer,
             "stadtteil" oftype filterType,
             "standort" oftype text,
             "baumart_botanisch" oftype text,
