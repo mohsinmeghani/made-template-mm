@@ -3,3 +3,4 @@
 !/data/.gitkeep
 package.json
 package-lock.json
+*.sqlite
