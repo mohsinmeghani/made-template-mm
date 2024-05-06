@@ -42,4 +42,4 @@ pipeline Trees{
     }
 
     constraint furthOnly on text:
-    value matches /Furth.*/;
+    value matches /Furth-.*/;
