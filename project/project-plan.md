@@ -24,7 +24,7 @@ This question explores the relationship between global mean surface seawater aci
 * Data Type: TSV
 
 Short description of the DataSource.
-This datasource contains datasource needed for this project,it present information about CO2 emissions by means of transport in europe.
+This datasource shows the global ocean surface acidity expressed as mean pH value. The decline in pH observed on a global scale corresponds to an increase in the acidity of ocean water and vice versa.
 
 ### Datasource 2: euorstat
 * Metadata URL: [https://ec.europa.eu/eurostat/cache/metadata/en/env_air_gge_esms.htm]
@@ -32,7 +32,7 @@ This datasource contains datasource needed for this project,it present informati
 * Data Type: TSV
 
 Short description of the DataSource.
-This datasource contains datasource needed for this project,it present information about total number oof passengers travelled by different means of transport in europe.
+This datasource contains tracks trends in greenhouse gas (GHG) emissions by agriculture, estimated and reported under the United Nations Framework Convention on Climate Change (UNFCCC), the Kyoto Protocol and the Decision.
 
 ## Work Packages
 

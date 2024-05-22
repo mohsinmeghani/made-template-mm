@@ -1,0 +1,31 @@
+pipeline ClimateChange{
+
+GetFile -> toText -> toTSV -> toTable -> toDb;
+
+block GetFile oftype HttpExtractor {
+   url: "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/sdg_14_50/1.0?compress=false&format=csvdata&formatVersion=2.0";
+ }
+
+ 
+ block toText oftype TextFileInterpreter{} 
+
+ block toTSV oftype CSVInterpreter{
+        delimiter:",";
+    }
+
+ block toTable oftype TableInterpreter{
+        header: true;
+        columns:[
+            "TIME_PERIOD" oftype integer,
+            "OBS_VALUE" oftype decimal
+        ];
+    
+    }
+
+    block toDb oftype SQLiteLoader{
+        table:"file1";
+        file:"../data/file1.sqlite";
+    }
+   
+
+}
