@@ -1,2 +1,2 @@
 #!/bin/bash
-jv ./file1.jv -d
+jv ./climate_change.jv -d

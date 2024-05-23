@@ -1,0 +1,66 @@
+pipeline Ocean_Surface_Acidity{
+
+GetFile -> toText -> toTSV -> toTable -> toDb;
+
+block GetFile oftype HttpExtractor {
+   url: "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/sdg_14_50/1.0?compress=false&format=csvdata&formatVersion=2.0";
+ }
+
+ 
+ block toText oftype TextFileInterpreter{} 
+
+ block toTSV oftype CSVInterpreter{
+        delimiter:",";
+    }
+
+ block toTable oftype TableInterpreter{
+        header: true;
+        columns:[
+            "TIME_PERIOD" oftype integer,
+            "OBS_VALUE" oftype decimal
+        ];
+    
+    }
+
+    block toDb oftype SQLiteLoader{
+        table:"ocean_surface_acidity";
+        file:"../data/climate_change.sqlite";
+    }
+   
+
+}
+
+pipeline Carbon_Emission{
+
+GetFile -> toText -> toTSV -> toTable -> toDb;
+
+block GetFile oftype HttpExtractor {
+   url: "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/tai08/?format=SDMX-CSV&lang=en&label=label_only";
+ }
+
+ 
+ block toText oftype TextFileInterpreter{} 
+
+ block toTSV oftype CSVInterpreter{
+        delimiter:",";
+        enclosing:'"';
+    }
+
+ block toTable oftype TableInterpreter{
+        header: true;
+        columns:[
+            "airpol" oftype text,
+            "geo" oftype text,
+            "TIME_PERIOD" oftype integer,
+            "OBS_VALUE" oftype decimal
+        ];
+    
+    }
+
+    block toDb oftype SQLiteLoader{
+        table:"carbon_emission_europe";
+        file:"../data/climate_change.sqlite";
+    }
+   
+
+}

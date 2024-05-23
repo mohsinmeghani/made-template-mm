@@ -21,7 +21,7 @@ This question explores the relationship between global mean surface seawater aci
 ### Datasource 1: euorstat
 * Metadata URL: [https://ec.europa.eu/eurostat/cache/metadata/en/sdg_14_50_esmsip2.htm  ]
 * Data URL: [https://ec.europa.eu/eurostat/databrowser/view/sdg_14_50/default/table?lang=en&category=cli.cli_iad]
-* Data Type: TSV
+* Data Type: CSV
 
 Short description of the DataSource.
 This datasource shows the global ocean surface acidity expressed as mean pH value. The decline in pH observed on a global scale corresponds to an increase in the acidity of ocean water and vice versa.
@@ -29,7 +29,7 @@ This datasource shows the global ocean surface acidity expressed as mean pH valu
 ### Datasource 2: euorstat
 * Metadata URL: [https://ec.europa.eu/eurostat/cache/metadata/en/env_air_gge_esms.htm]
 * Data URL: [https://ec.europa.eu/eurostat/databrowser/view/tai08/default/table?lang=en&category=cli.cli_gge]
-* Data Type: TSV
+* Data Type: CSV
 
 Short description of the DataSource.
 This datasource contains tracks trends in greenhouse gas (GHG) emissions by agriculture, estimated and reported under the United Nations Framework Convention on Climate Change (UNFCCC), the Kyoto Protocol and the Decision.
