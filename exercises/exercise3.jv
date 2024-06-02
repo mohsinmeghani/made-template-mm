@@ -36,7 +36,7 @@ pipeline GoodsTransport {
             "month" oftype text,
             "goods_id" oftype GoodsID,
             "goods_name" oftype text,
-            "good_source" oftype text,
+            "goods_source" oftype text,
             "abroad" oftype integer,
             "total" oftype integer,
         ];
