@@ -17,7 +17,7 @@ pipeline GoodsTransport {
     }
 
     block deleteRows oftype RowDeleter{
-        delete: [row 1, row 2,row 3,row 4,row 5, row 6,row 7,row 8,row 9];
+        delete: [row 1, row 2,row 3,row 4,row 5, row 6,row 7,row 8];
     }
 
     block deleteCols oftype ColumnDeleter{
@@ -32,13 +32,13 @@ pipeline GoodsTransport {
     block toTable oftype TableInterpreter{
         header: false;
         columns:[
-            "year" oftype integer,
+            "year" oftype positiveInt,
             "month" oftype text,
             "goods_id" oftype GoodsID,
             "goods_name" oftype text,
             "goods_source" oftype text,
-            "abroad" oftype integer,
-            "total" oftype integer,
+            "abroad" oftype positiveInt,
+            "total" oftype positiveInt,
         ];
     }
 
@@ -48,6 +48,12 @@ pipeline GoodsTransport {
     }
 
 
+    valuetype positiveInt oftype integer{
+        constraints: [
+            c_postivenum
+        ];
+    }
+
     valuetype GoodsID oftype text {
         constraints:[
             c_goodsID
@@ -55,6 +61,9 @@ pipeline GoodsTransport {
     }
 
 
+    constraint c_postivenum on integer:
+    value >= 0;
+
     constraint c_goodsID on text:
-    value matches /NST7-.*/;
+    value matches /NST7-[0-9A-Z]{3}/;
 }
