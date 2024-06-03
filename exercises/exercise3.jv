@@ -33,7 +33,7 @@ pipeline GoodsTransport {
         header: false;
         columns:[
             "year" oftype positiveInt,
-            "month" oftype text,
+            "month" oftype validMonth,
             "goods_id" oftype GoodsID,
             "goods_name" oftype text,
             "goods_source" oftype text,
@@ -45,6 +45,12 @@ pipeline GoodsTransport {
     block toDb oftype SQLiteLoader{
         table:"goods";
         file:"./goodsTransportedByTrain.sqlite";
+    }
+
+    valuetype validMonth oftype text{
+        constraints:[
+            c_validMonth
+        ];
     }
 
 
@@ -60,6 +66,9 @@ pipeline GoodsTransport {
         ];
     }
 
+
+    constraint c_validMonth on text:
+    value in ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
 
     constraint c_postivenum on integer:
     value >= 0;
