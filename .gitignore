@@ -4,3 +4,4 @@
 package.json
 package-lock.json
 *.sqlite
+/project/Data-Report.md
