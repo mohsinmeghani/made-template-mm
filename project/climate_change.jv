@@ -32,7 +32,7 @@ block GetFile oftype HttpExtractor {
 
 pipeline Carbon_Emission{
 
-GetFile -> toText -> toTSV -> toTable -> toDb;
+GetFile -> toText -> toTSV ->deleteRows -> deleteCols -> toTable -> toDb;
 
 block GetFile oftype HttpExtractor {
    url: "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/tai08/?format=SDMX-CSV&lang=en&label=label_only";
@@ -46,11 +46,19 @@ block GetFile oftype HttpExtractor {
         enclosing:'"';
     }
 
+ block deleteRows oftype RowDeleter{
+        delete: [row 1];
+    }   
+
+ block deleteCols oftype ColumnDeleter{
+        delete: [column A,column B,column C,column E,column F,column J];
+    } 
+
  block toTable oftype TableInterpreter{
-        header: true;
+        header: false;
         columns:[
-            "airpol" oftype text,
-            "geo" oftype text,
+            "GAS" oftype text,
+            "COUNTRY" oftype text,
             "TIME_PERIOD" oftype integer,
             "OBS_VALUE" oftype decimal
         ];
