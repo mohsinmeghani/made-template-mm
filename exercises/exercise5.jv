@@ -1,0 +1,60 @@
+pipeline gtfs{
+
+   Extractor -> filepicker -> toText -> toCSV -> deleteCols -> deleteRow -> toTable ->toDb; 
+
+ block Extractor oftype GTFSExtractor {
+        url:"https://gtfs.rhoenenergie-bus.de/GTFS.zip";
+    }
+
+
+block filepicker oftype FilePicker {
+   path: "/stops.txt";
+ }
+
+
+block toText oftype TextFileInterpreter{
+    encoding: "utf8";
+}
+
+
+block toCSV oftype CSVInterpreter{
+        delimiter:",";
+        enclosing:'"';
+}
+
+block deleteRow oftype RowDeleter {
+   delete: [row 1];
+ }
+
+block deleteCols oftype ColumnDeleter {
+   delete: [column B, column D,column H, column I,column J, column K,column L];
+ }
+
+
+ block toTable oftype TableInterpreter{
+        header: false;
+        columns:[
+            "stop_id" oftype integer,
+            "stop_name" oftype text,
+            "stop_lat" oftype decimal,
+            "stop_lon" oftype decimal,
+            "zone_id" oftype Selected_Zone
+        ];
+    }
+
+ block toDb oftype SQLiteLoader{
+        table:"stops";
+        file:"./gtfs.sqlite";
+    }
+
+
+}
+
+ valuetype Selected_Zone oftype integer {
+        constraints:[
+            specific_zone
+        ];
+    }
+
+    constraint specific_zone on integer:
+    value == 1645;
