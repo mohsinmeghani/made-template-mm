@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name : Starting Test
+      shell: bash
       run: |
-        tests.sh
+        ./project/tests.sh
     
       
