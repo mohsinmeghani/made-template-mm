@@ -22,7 +22,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "running system test"
+echo "running system test."
 python ./system-test.py
 
 # Check the return value of system_test.sh
