@@ -1,0 +1,17 @@
+name: Project Tests
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - project/**
+    
+jobs:
+  project_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name : Starting Test
+      run: |
+        tests.sh
+    
+      
