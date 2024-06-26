@@ -13,7 +13,7 @@ fi
 echo "Files Removed"
 
 # Running the pipeline
-echo "Running the pipeline..."
+echo "Running the pipeline...2"
 bash ./pipeline.sh
 
 # Check the return value of pipeline.sh
