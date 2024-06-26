@@ -38,9 +38,14 @@ jobs:
         with:
           repository: mohsinmeghani/made-template-mm
           path: app
-    
+
+      - name : Running Pipeline
+        working-directory: ./app/project
+        run: bash ./pipeline.sh
+
       - name : Starting Test
+        working-directory: ./app/project
         run: |
-         bash ./app/project/Tests.sh
+         bash ./Tests.sh
     
       
