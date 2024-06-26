@@ -41,6 +41,6 @@ jobs:
     
       - name : Starting Test
         run: |
-         bash ./app/project/tests.sh
+         bash ./app/project/Tests.sh
     
       
