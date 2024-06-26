@@ -43,6 +43,11 @@ jobs:
         working-directory: ./app/project
         run: bash ./pipeline.sh
 
+      - name : Testing File
+        run: |
+          cd ../data/
+          ls
+
       - name : Starting Test
         working-directory: ./app/project
         run: |
