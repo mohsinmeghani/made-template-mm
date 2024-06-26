@@ -41,7 +41,6 @@ jobs:
     
       - name : Starting Test
         run: |
-         cd app
-         ls
+         bash ./app/project/tests.sh
     
       
