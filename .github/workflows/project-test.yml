@@ -41,6 +41,7 @@ jobs:
     
       - name : Starting Test
         run: |
+         cd app
          ls
     
       
