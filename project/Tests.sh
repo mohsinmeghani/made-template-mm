@@ -10,7 +10,7 @@ if [ -f ../data/climate_change.sqlite ]; then
     exit 1
 fi
 
-echo "Files Removed"
+echo "Files Removed2"
 
 # Running the pipeline
 echo "Running the pipeline...2"
