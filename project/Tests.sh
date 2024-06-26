@@ -10,7 +10,7 @@ if [ -f ../data/climate_change.sqlite ]; then
     exit 1
 fi
 
-echo "Files Removed "
+echo "Files Removed"
 
 echo "running system test."
 python ./system-test.py
