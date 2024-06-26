@@ -1,5 +1,8 @@
 # Removing Existing Files
 echo "Starting Tests"
+echo "Installing pre-requisit lib"
+pip install pandas pysqlite3
+
 echo "------------------------"
 
 echo "running system test."
