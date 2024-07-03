@@ -1,35 +1,63 @@
-# Analysis of the Correlation Between Global Mean Surface Seawater Acidity and Agricultural Greenhouse Gas Emissions
+
+# Data Report: Carbon Emission and Ocean Surface Acidity Analysis
 
 ## 1. Introduction
-The increasing acidity of global mean surface seawater, known as ocean acidification, is a critical environmental issue. It results primarily from the absorption of atmospheric carbon dioxide (CO₂) by the oceans, forming carbonic acid. This process is influenced by various sources of CO₂ and other greenhouse gases, including emissions from agricultural activities. Understanding the correlation between agricultural greenhouse gas emissions and ocean acidification over the past two decades is essential for developing effective mitigation strategies.
+This report analyzes the relationship between average carbon emissions in Europe and ocean surface acidity from 2011 to 2022. The analysis includes visualizations, correlation, and covariance between the two variables.
 
-## 2. Used Data
-**Data Set 1: Global Mean Surface Seawater Acidity**
-- **Source:** Eurostat
-- **Description:** This dataset provides annual measurements of global mean surface seawater pH levels, reflecting trends in ocean acidity over time.
-- **Structure and Quality:** Structured as a yearly time series with high-quality data verified by reputable scientific institutions.
+## 2. Data Overview
+- **Carbon Emission Dataset:** Contains the average carbon emissions in Europe over the years.
+- **Ocean Surface Acidity Dataset:** Contains the ocean surface acidity levels over the same period.
 
-**Data Set 2: Greenhouse Gas Emissions from Agriculture**
-- **Source:** Eurostat
-- **Description:** This dataset offers detailed information on annual greenhouse gas emissions from agricultural activities, including methane (CH₄) and nitrous oxide (N₂O).
-- **Structure and Quality:** Presented in a time series format, with detailed and reliable data following stringent reporting and verification standards.
+## 3. Data Visualization
 
-**Licenses**
-- Eurostat data is typically available under public domain or open-data licenses, permitting use with proper attribution.
-- Compliance Plan: All data will be cited appropriately, adhering to the terms of use specified by Eurostat.
+### Average Carbon Emission in Europe Over Time
+![Carbon Emission](attachment:image)
 
-## 3. Analysis
-**Methodology**
-- **Data Cleaning and Transformation:** Removed unwanted data and applied appropriate data types. Aligned datasets to common time periods to resolve inconsistent timeframes.
-- **Data Merging:** Created separate pipelines for each input dataset and saved data into a single SQLite database to facilitate normalization and querying.
+### Ocean Surface Acidity Over Time
+![Ocean Acidity](attachment:image)
 
-**Results**
-- **Trend Analysis:** Examined the trends in seawater acidity and agricultural greenhouse gas emissions over the past two decades.
-- **Correlation Assessment:** Used statistical methods to assess the correlation between the two variables, focusing on the relationship between pH levels and emissions of CH₄ and N₂O.
+### Combined Analysis: Carbon Emission and Ocean Surface Acidity Over Time
+![Combined Analysis](attachment:image)
 
-**Interpretation**
-- **Positive Correlation:** Found a positive correlation between increased agricultural greenhouse gas emissions and the rising acidity of seawater, indicating that emissions from agriculture contribute to ocean acidification.
-- **Significance of Findings:** Highlighted the importance of reducing agricultural emissions to mitigate ocean acidification.
+## 4. Correlation and Covariance Analysis
+- **Correlation Matrix Excluding TIME_PERIOD**
 
-## 4. Conclusions
-The analysis demonstrates a clear correlation between agricultural greenhouse gas emissions and the trend in global mean surface seawater acidity over the past two decades. This finding underscores the need for targeted strategies to reduce emissions from agricultural activities as part of broader efforts to combat ocean acidification. While the question has been answered comprehensively, further research is needed to explore the impacts of specific agricultural practices and regional variations on ocean acidity.
+  |                 | Carbon_Emission | Ocean_Acidity |
+  |-----------------|-----------------|---------------|
+  | Carbon_Emission | 1.000           | -0.938        |
+  | Ocean_Acidity   | -0.938          | 1.000         |
+
+- **Covariance Matrix Heatmap**
+![Covariance Matrix](attachment:image)
+
+- **Covariance between Carbon Emission and Ocean Acidity:** \(-0.0076\)
+
+## 5. Conclusion
+The analysis indicates a strong negative correlation (\( r = -0.938 \)) between carbon emissions and ocean acidity levels. The covariance value of \(-0.0076\) suggests that as carbon emissions increase, ocean surface acidity tends to decrease. This relationship highlights the potential impact of carbon emissions on oceanic conditions.
+
+## 6. Data Tables
+The combined dataset used in the analysis is presented below:
+
+| TIME_PERIOD | Carbon_Emission | Ocean_Acidity |
+|-------------|-----------------|---------------|
+| 2011.0        | 43.30           | 8.069         |
+| 2012.0        | 43.71           | 8.068         |
+| 2013.0        | 44.54           | 8.065         |
+| 2014.0        | 45.17           | 8.064         |
+| 2015.0        | 45.23           | 8.063         |
+| 2016.0        | 45.56           | 8.060         |
+| 2017.0        | 45.59           | 8.057         |
+| 2018.0        | 45.63           | 8.055         |
+| 2019.0        | 45.94           | 8.053         |
+| 2020.0        | 46.88           | 8.051         |
+| 2021.0        | 46.65           | 8.049         |
+| 2022.0        | 46.55           | 8.047         |
+| 2016.0        | 45.50           | 8.062         |
+| 2017.0        | 45.80           | 8.061         |
+| 2018.0        | 46.10           | 8.060         |
+| 2019.0        | 46.50           | 8.059         |
+| 2020.0        | 46.80           | 8.058         |
+| 2021.0        | 47.10           | 8.057         |
+| 2022.0        | 47.50           | 8.056         |
+
+If you require further insights or additional analysis, please let me know!
