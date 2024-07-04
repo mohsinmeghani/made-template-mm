@@ -7,7 +7,7 @@ Impact of Farming Emission on Ocean Acidity.
 ## Main Question
 
 <!-- Think about one main question you want to answer based on the data. -->
-1. How does the trend in global mean surface seawater acidity correlate with greenhouse gas emissions from agriculture over the last decade in Europe?
+1. How does the trend in global mean surface Ocean acidity correlate with greenhouse gas emissions from agriculture over the last decade in Europe?
 
 ## Description
 
